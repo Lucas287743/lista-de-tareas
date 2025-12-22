@@ -88,6 +88,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 
 
+    // Llamar esta funcion después de cargar, eliminar, marcar/desmarcar como hechas las tareas.
+    function checkEmptyState() {
+        const $emptyState = document.getElementById('empty-state');
+        const $tableContainer = $taskList.closest('.table-container');
+
+        // Cantidad de filas
+        const rowCount = $taskList.querySelectorAll('tr').length;
+
+        if (rowCount === 0) {
+            $emptyState.classList.remove('hidden');
+            $tableContainer.classList.add('hidden');
+        } else {
+            $emptyState.classList.add('hidden');
+            $tableContainer.classList.remove('hidden');
+        }
+    }
+
+
     //3.FUNCIONES DE PERSISTENCIA
 
 
@@ -137,6 +155,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
             //localStorage.removeItem('tasks'); // Opcional
             console.log(localStorage.getItem('tasks'));
         }
+
+        checkEmptyState();
     }
 
 
@@ -211,6 +231,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         // 3. Persistir en LocalStorage
         saveTasks();
+
+        checkEmptyState();
 
         // Opcional: Podrías disparar automáticamente el editor en la nueva celda
         const $newRow = $taskList.lastElementChild;

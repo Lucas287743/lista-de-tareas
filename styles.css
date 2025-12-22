@@ -78,7 +78,7 @@ tr:nth-child(even) {
 
 tr:hover {
     background-color: #ddd;
-    cursor: pointer; /* Opcional: cambia el cursor para indicar interacción */
+    cursor: pointer;
 }
 
 th {
@@ -94,6 +94,44 @@ th, td {
 td{
     border-bottom: 1px solid #ddd;
 }
+
+
+.empty-state-container {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+    border: 2px dashed #ddd;
+    border-radius: 10px;
+    margin: 20px 0;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+
+.empty-state-content i {
+    font-size: 50px;
+    color: #27ae60;
+    margin-bottom: 15px;
+}
+
+.empty-state-content p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.empty-state-content span {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.hidden {
+    display: none !important;
+    opacity: 0;
+}
+
+
+
 
 
 .col-mover{
