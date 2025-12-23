@@ -137,6 +137,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         if (!tasksJSON) {
             taskList = { pending: [], done: [] };
+            checkEmptyState();
             return;
         }
 
